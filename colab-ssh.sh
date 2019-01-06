@@ -12,7 +12,7 @@ else
         then
             wget "https://raw.githubusercontent.com/mpolatcan/colab-ssh/master/sshd_config"
     fi
-    mv sshd_config /etc/ssh/
+    cp sshd_config /etc/ssh/
     mkdir -p /var/run/sshd
     /usr/sbin/sshd -D &
     echo "sshd daemon is running..."
@@ -23,7 +23,7 @@ else
         then
             wget "https://raw.githubusercontent.com/mpolatcan/colab-ssh/master/.bashrc" > /dev/null
     fi
-    mv .bashrc /root/
+    cp .bashrc /root/
     echo ".basrhc updated!"
     # Install core tools
     apt-get install nano htop pciutils net-tools vim
