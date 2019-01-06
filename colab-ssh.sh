@@ -8,7 +8,7 @@ if [[ "${PASSWORD}" == "" ]]
 else
     ################################## SSH SETTINGS ##############################################
     echo "Getting sshd config and apply settings..."
-    if [[ ! -f "sshd_config" ]]
+    if [[ ! -e "sshd_config" ]]
         then
             wget "https://raw.githubusercontent.com/mpolatcan/colab-ssh/master/sshd_config"
     fi
@@ -19,7 +19,7 @@ else
     ################################## SYSTEM SETTINGS ##############################################
     # Get .bashrc config
     echo "Getting .bashrc config and apply settings..."
-    if [[ ! -f ".bashrc" ]]
+    if [[ ! -e ".bashrc" ]]
         then
             wget "https://raw.githubusercontent.com/mpolatcan/colab-ssh/master/.bashrc" > /dev/null
     fi
@@ -34,7 +34,7 @@ else
     ################################## TUNNEL SETTINGS ##############################################
     # Get Labstack Tunnel 
     echo "Getting Labstack tunnel..."
-    if [[ ! -f "tunnel-cli" ]]
+    if [[ ! -e "tunnel-cli" ]]
         then
             wget "https://github.com/mpolatcan/colab-ssh/raw/master/tunnel-cli"
             chmod +x tunnel-cli
