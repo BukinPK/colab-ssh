@@ -6,26 +6,39 @@ if [[ "${PASSWORD}" == "" ]]
     then
         echo "[USAGE] ./colab-ssh.sh [password]"
 else
+    ################################## SSH SETTINGS ##############################################
     echo "Getting sshd config and apply settings..."
-    wget "https://raw.githubusercontent.com/mpolatcan/colab-ssh/master/sshd_config" > /dev/null
+    if [[ ! -f "sshd_config" ]]
+        then
+            wget "https://raw.githubusercontent.com/mpolatcan/colab-ssh/master/sshd_config"
+    fi
     mv sshd_config /etc/ssh/
     mkdir -p /var/run/sshd
     /usr/sbin/sshd -D &
     echo "sshd daemon is running..."
+    ################################## SYSTEM SETTINGS ##############################################
     # Get .bashrc config
     echo "Getting .bashrc config and apply settings..."
-    wget "https://raw.githubusercontent.com/mpolatcan/colab-ssh/master/.bashrc" > /dev/null
+    if [[ ! -f ".bashrc" ]]
+        then
+            wget "https://raw.githubusercontent.com/mpolatcan/colab-ssh/master/.bashrc" > /dev/null
+    fi
     mv .bashrc /root/
     echo ".basrhc updated!"
-    apt-get install nano htop pciutils net-tools
+    # Install core tools
+    apt-get install nano htop pciutils net-tools vim
     echo "nano, htop, pciutils, net-tools installed..."
-    # Get Labstack Tunnel 
-    echo "Getting Labstack tunnel..."
-    wget "https://github.com/mpolatcan/colab-ssh/raw/master/tunnel-cli" >> /dev/null
-    chmod +x tunnel-cli
     # Setting password
     echo "Setting password..."
     echo root:${PASSWORD} | chpasswd
+    ################################## TUNNEL SETTINGS ##############################################
+    # Get Labstack Tunnel 
+    echo "Getting Labstack tunnel..."
+    if [[ ! -f "tunnel-cli" ]]
+        then
+            wget "https://github.com/mpolatcan/colab-ssh/raw/master/tunnel-cli"
+            chmod +x tunnel-cli
+    fi
     # Tunnel is activating
     echo "Tunnel is activating..."
     ./tunnel-cli --tcp 22 &
