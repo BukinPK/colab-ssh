@@ -17,6 +17,8 @@ else
     wget "https://raw.githubusercontent.com/mpolatcan/colab-ssh/master/.bashrc" > /dev/null
     mv .bashrc /root/
     echo ".basrhc updated!"
+    apt-get install nano htop pciutils net-tools
+    echo "nano, htop, pciutils, net-tools installed..."
     # Get Labstack Tunnel 
     echo "Getting Labstack tunnel..."
     wget "https://github.com/mpolatcan/colab-ssh/raw/master/tunnel-cli" >> /dev/null
