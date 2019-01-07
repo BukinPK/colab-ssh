@@ -16,8 +16,8 @@ else
     mkdir -p /var/run/sshd
     /usr/sbin/sshd -D &
     echo "sshd daemon is running..."
+
     ################################## SYSTEM SETTINGS ##############################################
-    # Get .bashrc config
     echo "Getting .bashrc config and apply settings..."
     if [[ ! -e ".bashrc" ]]
         then
@@ -25,14 +25,12 @@ else
     fi
     cp .bashrc /root/
     echo ".basrhc updated!"
-    # Install core tools
-    apt-get install nano htop pciutils net-tools vim
+    apt-get install nano htop pciutils net-tools vim tmux
     echo "nano, htop, pciutils, net-tools installed..."
-    # Setting password
     echo "Setting password..."
     echo root:${PASSWORD} | chpasswd
+
     ################################## TUNNEL SETTINGS ##############################################
-    # Get Labstack Tunnel 
     echo "Getting Labstack tunnel..."
     if [[ ! -e "tunnel-cli" ]]
         then
