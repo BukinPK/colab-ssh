@@ -25,7 +25,7 @@ else
     fi
     cp .bashrc /root/
     echo ".basrhc updated!"
-    apt-get install nano htop pciutils net-tools vim tmux
+    apt-get -y install nano htop pciutils net-tools vim tmux
     echo "nano, htop, pciutils, net-tools installed..."
     echo "Setting password..."
     echo root:${PASSWORD} | chpasswd
