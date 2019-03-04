@@ -1,7 +1,8 @@
 #!/bin/bash
 
 PASSWORD=$1
-realpath $0
+basedir=$(dirname $(realpath $0))
+echo $basedir
 if [[ "${PASSWORD}" == "" ]]
     then
         echo "[USAGE] ./colab-ssh.sh [password]"
