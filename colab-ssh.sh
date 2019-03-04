@@ -12,18 +12,18 @@ else
     cp $BASEDIR/sshd_config /etc/ssh/
     mkdir -p /var/run/sshd
     /usr/sbin/sshd -D &
-    echo "sshd daemon is running..."
+    echo "Sshd daemon start..."
 
     ################################## SYSTEM SETTINGS ##############################################
     cp $BASEDIR/.bashrc /root/
-    echo ".basrhc updated!"
-    apt-get -y -qq install htop pciutils net-tools vim
-    echo "vim, htop, pciutils, net-tools installed..."
+    echo "Update .basrhc!"
+    apt-get -y -qq install htop vim
+    echo "Install... vim, htop "
     echo root:${PASSWORD} | chpasswd
 
     ################################## TUNNEL SETTINGS ##############################################
     # Tunnel is activating
-    echo "Tunnel is activating..."
+    echo "Tunnel activating..."
     rm -rf ~/.tunnel.log
     nohup $BASEDIR/tunnel-cli --tcp 22 >~/.tunnel.log 2>/dev/null &
     sleep 1
