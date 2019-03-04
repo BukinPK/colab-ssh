@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PASSWORD=$1
-
+echo $0
 if [[ "${PASSWORD}" == "" ]]
     then
         echo "[USAGE] ./colab-ssh.sh [password]"
