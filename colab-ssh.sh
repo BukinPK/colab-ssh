@@ -24,6 +24,10 @@ else
     ################################## TUNNEL SETTINGS ##############################################
     # Tunnel is activating
     echo "Tunnel activating..."
+    pid=$(pidof $BASEDIR/tunnel-cli)
+    if [ -n "$pid" ]; then
+	    kill $pid
+    fi
     rm -rf ~/.tunnel.log
     nohup $BASEDIR/tunnel-cli --tcp 22 >~/.tunnel.log 2>/dev/null &
     sleep 1
