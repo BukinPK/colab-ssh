@@ -41,7 +41,7 @@ else
     echo "Tunnel is activating..."
     rm -rf ~/.tunnel.log
     nohup ./tunnel-cli --tcp 22 >~/.tunnel.log 2>/dev/null &
-    sleep 5
+    sleep 1
     cat ~/.tunnel.log
 fi
 
