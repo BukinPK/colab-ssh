@@ -25,7 +25,7 @@ else
     fi
     cp .bashrc /root/
     echo ".basrhc updated!"
-    apt-get -y install htop pciutils net-tools vim -qq
+    apt-get -y -qq install htop pciutils net-tools vim
     echo "vim, htop, pciutils, net-tools installed..."
     echo "Setting password..."
     echo root:${PASSWORD} | chpasswd
