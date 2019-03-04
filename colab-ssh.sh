@@ -39,6 +39,6 @@ else
     fi
     # Tunnel is activating
     echo "Tunnel is activating..."
-    ./tunnel-cli --tcp 22 &
+    nohup ./tunnel-cli --tcp 22 & >/dev/null 2>&1
 fi
 
