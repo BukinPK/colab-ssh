@@ -39,8 +39,8 @@ else
     fi
     # Tunnel is activating
     echo "Tunnel is activating..."
-    rm -rf nohup.out
+    rm -rf ./nohup.out
     nohup ./tunnel-cli --tcp 22 2>/dev/null &
-    cat nohup.out
+    cat ./nohup.out
 fi
 
