@@ -3,11 +3,11 @@ SSH Connector to connect Google Colab VM instance with Labstack Tunnel
 
 # Usage
 
-1. Go to https://colab.research.google.com and create new Colab Notebook
+1. Go to https://colab.research.google.com/github/Dene33/colab-ssh/blob/master/Colab_ssh.ipynb
 
-2. Create the cell with the following: `!git clone https://github.com/BukinPK/colab-ssh` Run the cell and wait for clonning of repository
+2. In second cell change `password` to password you'd like;
 
-3. Create the cell with the following: `!bash colab-ssh/colab-ssh.sh [PASSWORD]` Choose the password you'd like instead of `[PASSWORD]` Run the cell.
+3. Run the cells
 
 4. Wait some time and you'll be able to see the last line like that: `⇨ routing traffic from tcp://zoe.labstack.me:41045`
 
